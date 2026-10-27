@@ -14,17 +14,20 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
 
 - **Static only.** No server endpoint, no on-demand rendering, no adapter.
   Anything that needs a server (a request form, for instance) is a decision
-  to take first, not a default.
+  to take first, not a default. Requests come by email (eddb@unifr.ch).
 - **Three languages**: French at the root, German under `/de/`, English
   under `/en/` (`astro.config.mjs`). Interface strings in
   `src/i18n/ui.ts`; page texts in Markdown, one file per page and language:
   `src/content/pages/<locale>/<slug>.md`, with the **same slug in every
   language** (the language switcher relies on it). Slugs are English in
   every language (`/projects`, `/de/projects`). Pages: `index`,
-  `projects`, `open-science`, `get-started` (Almanac:
+  `projects`, `open-science`; `get-started` is a dialog page
+  (`dialog: true`), opened on the home page by `/#get-started` (Almanac:
   `eddb/eddb-website/decisions/2026-10-27-plan-du-site.md`). French is
   written first; a page missing in a language makes the switcher link to
   that language's home page.
+- **Dialogs**: one at a time; a link to `/#<slug>` opens the dialog of
+  that id, closing any other.
 - **Offers**: no page of their own. The three offers (`nocodb`,
   `postgresql`, `showcases`) are cards on the home page, each opening a
   native `<dialog>` with its details, including what is and is not

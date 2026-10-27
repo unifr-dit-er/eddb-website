@@ -10,8 +10,12 @@ export const languageNames: Record<Locale, string> = {
   en: 'English',
 };
 
-/** Pages of the main navigation, by slug. */
-export const navigation = ['projects', 'open-science', 'get-started'] as const;
+/** Main navigation, by slug; a dialog page opens on the home page. */
+export const navigation = [
+  { slug: 'projects' },
+  { slug: 'open-science' },
+  { slug: 'get-started', dialog: true },
+] as const;
 
 export const contactEmail = 'eddb@unifr.ch';
 
@@ -101,6 +105,11 @@ export function localized(text: { fr: string } & Partial<Record<Locale, string>>
 
 export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
+}
+
+/** URL of a dialog page: the home page, which opens the dialog. */
+export function dialogUrl(locale: Locale, slug: string): string {
+  return pageUrl(locale, 'index', slug);
 }
 
 /** URL of a page slug in a language; 'index' is the home page. */

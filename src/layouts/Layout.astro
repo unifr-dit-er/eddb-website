@@ -3,7 +3,7 @@ import '@fontsource-variable/atkinson-hyperlegible-next';
 import '@fontsource-variable/newsreader';
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import { contactEmail, navigation, pageUrl, t, unifrUrl, type Locale } from '../i18n/ui';
+import { contactEmail, dialogUrl, navigation, pageUrl, t, unifrUrl, type Locale } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -56,14 +56,14 @@ const { title, description, locale, slug, translations, wide = false } = Astro.p
             navigation.map((item) => (
               <li>
                 <a
-                  href={pageUrl(locale, item)}
-                  aria-current={item === slug ? 'page' : undefined}
+                  href={'dialog' in item ? dialogUrl(locale, item.slug) : pageUrl(locale, item.slug)}
+                  aria-current={item.slug === slug ? 'page' : undefined}
                   class:list={[
                     'inline-block border-b-2 pb-1 hover:border-primary-foreground',
-                    item === slug ? 'border-primary-foreground font-semibold' : 'border-transparent',
+                    item.slug === slug ? 'border-primary-foreground font-semibold' : 'border-transparent',
                   ]}
                 >
-                  {t(locale, `nav.${item}`)}
+                  {t(locale, `nav.${item.slug}`)}
                 </a>
               </li>
             ))

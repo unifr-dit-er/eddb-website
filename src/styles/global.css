@@ -21,6 +21,15 @@
   .prose-eddb ul {
     @apply list-disc pl-6;
   }
+  .prose-eddb ol {
+    @apply list-decimal pl-6;
+  }
+  .prose-eddb ol > li + li {
+    @apply mt-2;
+  }
+  .prose-eddb li::marker {
+    @apply text-primary-ink;
+  }
 }
 
 /* No page scrolling behind an open offer dialog. */

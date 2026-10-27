@@ -2,19 +2,32 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import OfferDialog from '../../components/OfferDialog.astro';
+import ContentDialog from '../../components/ContentDialog.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { localeParam, pageUrl, splitEntryId, t } from '../../i18n/ui';
+import { defaultLocale, localeParam, pageUrl, splitEntryId, t } from '../../i18n/ui';
 import { getPageRoutes } from '../../lib/pages';
 
 export const getStaticPaths = (async () => {
   const routes = await getPageRoutes();
+  const dialogs = routes.filter(({ page }) => page.data.dialog);
   return routes
     .filter(({ slug }) => slug === 'index')
-    .map((route) => ({ params: { locale: localeParam(route.locale) }, props: route }));
+    .map((route) => ({
+      params: { locale: localeParam(route.locale) },
+      props: {
+        ...route,
+        // Dialog pages of this language; one not yet translated falls back to
+        // French, so that the navigation never points to a missing dialog.
+        dialogs: [...new Set(dialogs.map(({ slug }) => slug))].map(
+          (slug) =>
+            (dialogs.find((d) => d.slug === slug && d.locale === route.locale) ??
+              dialogs.find((d) => d.slug === slug && d.locale === defaultLocale))!,
+        ),
+      },
+    }));
 }) satisfies GetStaticPaths;
 
-const { page, locale, translations } = Astro.props;
+const { page, locale, translations, dialogs } = Astro.props;
 const { Content } = await render(page);
 const { title, description, cta } = page.data;
 const offers = (await getCollection('offers', ({ id }) => splitEntryId(id).locale === locale)).sort(
@@ -34,7 +47,8 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
     {
       cta && (
         <a
-          href={pageUrl(locale, cta.slug)}
+          href={`#${cta.slug}`}
+          aria-haspopup="dialog"
           class="mt-8 inline-block rounded-md bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90"
         >
           {cta.label}
@@ -64,7 +78,12 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
       </ul>
     )
   }
-  {offers.map((offer) => <OfferDialog offer={offer} locale={locale} />)}
+  {
+    offers.map((offer) => (
+      <ContentDialog id={splitEntryId(offer.id).slug} title={offer.data.title} entry={offer} locale={locale} />
+    ))
+  }
+  {dialogs.map(({ page, slug }) => <ContentDialog id={slug} title={page.data.title} entry={page} locale={locale} />)}
 
   {
     featured.length > 0 && (
@@ -92,7 +111,10 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
   function openFromHash() {
     const id = decodeURIComponent(location.hash.slice(1));
     const target = id ? document.getElementById(id) : null;
-    if (target instanceof HTMLDialogElement && !target.open) target.showModal();
+    if (!(target instanceof HTMLDialogElement) || target.open) return;
+    // A link inside a dialog may open another one: one dialog at a time.
+    for (const open of document.querySelectorAll('dialog[open]')) (open as HTMLDialogElement).close();
+    target.showModal();
   }
 
   for (const dialog of document.querySelectorAll('dialog')) {

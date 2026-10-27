@@ -13,7 +13,9 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    // Home page only: the call to action.
+    // Shown as a dialog on the home page (/#<slug>), not as a page of its own.
+    dialog: z.boolean().default(false),
+    // Home page only: the call to action, opening the dialog page <slug>.
     cta: z.object({ label: z.string(), slug: z.string() }).optional(),
   }),
 });

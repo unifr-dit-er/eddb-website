@@ -1,25 +1,27 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
-import { splitEntryId, t, type Locale } from '../i18n/ui';
+import { t, type Locale } from '../i18n/ui';
 
 interface Props {
-  offer: CollectionEntry<'offers'>;
+  /** Dialog id: /#<id> opens it. */
+  id: string;
+  title: string;
+  entry: CollectionEntry<'offers'> | CollectionEntry<'pages'>;
   locale: Locale;
 }
 
-const { offer, locale } = Astro.props;
-const { slug } = splitEntryId(offer.id);
-const { Content } = await render(offer);
+const { id, title, entry, locale } = Astro.props;
+const { Content } = await render(entry);
 ---
 
 <dialog
-  id={slug}
-  aria-labelledby={`${slug}-title`}
+  id={id}
+  aria-labelledby={`${id}-title`}
   class="m-auto max-h-[85vh] w-[calc(100%-2rem)] max-w-3xl overflow-y-auto rounded-xl bg-background p-0 text-foreground shadow-2xl backdrop:bg-black/50"
 >
   <div class="sticky top-0 flex items-start justify-between gap-6 border-b bg-background px-6 py-5 sm:px-8">
-    <h2 id={`${slug}-title`} class="font-serif text-3xl text-primary-ink">{offer.data.title}</h2>
+    <h2 id={`${id}-title`} class="font-serif text-3xl text-primary-ink">{title}</h2>
     <form method="dialog">
       <button
         class="rounded-md px-2 py-1 text-2xl leading-none text-muted-foreground hover:bg-muted hover:text-foreground"

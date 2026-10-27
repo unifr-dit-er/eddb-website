@@ -9,7 +9,7 @@ import { getPageRoutes } from '../../lib/pages';
 export const getStaticPaths = (async () => {
   const routes = await getPageRoutes();
   return routes
-    .filter(({ slug }) => slug !== 'index')
+    .filter(({ slug, page }) => slug !== 'index' && !page.data.dialog)
     .map((route) => ({ params: { locale: localeParam(route.locale), slug: route.slug }, props: route }));
 }) satisfies GetStaticPaths;
 
