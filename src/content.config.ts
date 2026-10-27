@@ -16,6 +16,8 @@ const pages = defineCollection({
     kind: z.enum(['home', 'section', 'dialog']),
     title: z.string(),
     description: z.string(),
+    // Section only: blocks shown side by side under the introduction.
+    blocks: z.array(z.object({ title: z.string(), text: z.string() })).optional(),
     // Home only: the call to action, opening the dialog <slug>.
     cta: z.object({ label: z.string(), slug: z.string() }).optional(),
   }),

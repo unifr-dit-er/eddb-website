@@ -25,7 +25,8 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   `src/i18n/ui.ts`. Texts in Markdown, one file per part and language,
   **same slug in every language**: `src/content/pages/<locale>/<slug>.md`
   with `kind: home` (`index`, the introduction), `section` (a section of
-  the page, id `<slug>`: `open-science`) or `dialog` (`get-started`,
+  the page, id `<slug>`: `open-science`, whose `blocks` are shown side by
+  side under its introduction) or `dialog` (`get-started`,
   opened by the call to action). French is written first; a dialog not yet
   translated falls back to French.
 - **Dialogs**: native `<dialog>`, one at a time; a link to `/#<slug>`
@@ -45,6 +46,9 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   `/holynet`, `/nafo`, `/callisto`…) live on eddb.unifr.ch too. Never
   create a page whose path collides with them. Assets are under `/_astro/`.
 - **Texts are written for others**: the team is named **DIT-ER**.
+- **Open science**: describe our support, not platforms. DaSCH and data
+  repositories (OLOS, Zenodo) are not named on the site until those
+  processes are properly established (Alrick, 27.10.2026).
 - **Colours** follow the Unifr corporate design: midnight blue #071D49 as
   primary (EDDB serves every faculty, so no faculty colour), WCAG AA
   contrast. `src/styles/theme.css` is copied from the showcases' kit
