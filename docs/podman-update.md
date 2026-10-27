@@ -4,6 +4,7 @@ En tant que `podman` sur svx-web-eddb (`sudo machinectl shell --uid podman`).
 
 ```bash
 cd ~/repos/eddb-website
+podman tag eddb-website:latest eddb-website:previous   # pour revenir en arrière
 git pull
 podman build --ulimit nofile=4096:4096 -t eddb-website:latest .
 systemctl --user restart eddb-website

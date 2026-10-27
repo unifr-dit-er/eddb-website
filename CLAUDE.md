@@ -65,8 +65,8 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   (500 × 82, the only web version, as on unifr.ch) is shown at exactly
   41 px high to stay sharp; on narrow screens (< 640 px) the signet alone,
   `public/unifr-signet.svg`, vector, extracted from the icon font of
-  unifr.ch (glyph U+E00A). Ask the Service communication for a vector
-  version of the horizontal logo.
+  unifr.ch (glyph U+E00A). The PNG is enough for the horizontal logo: no
+  vector version needed (Alrick, 27.10.2026).
 - Fonts are self-hosted (Fontsource): Atkinson Hyperlegible Next for text,
   Newsreader for headings, as in the showcases.
 
@@ -80,7 +80,8 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
 - Image: `podman build -t eddb-website:latest .` (Node builds, nginx
   unprivileged serves on port 8080; `nginx.conf`).
 - **Production**: svx-web-eddb, port 8080 behind the VM's nginx
-  (`eddb.unifr.ch/`), taken over from eddb-hub; Quadlet unit
+  (`eddb.unifr.ch/`), since 27.10.2026, in place of eddb-hub (removed);
+  Quadlet unit
   `eddb-website.container.example`. First deployment and rollback:
   `docs/podman-deploy.md`; updates: `docs/podman-update.md`. `/projets`,
   a page of eddb-hub still linked elsewhere, redirects to `/#projects`

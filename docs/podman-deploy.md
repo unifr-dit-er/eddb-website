@@ -66,14 +66,9 @@ bougé.
 
 ## Revenir en arrière
 
-```bash
-systemctl --user stop eddb-website
-mv ~/.config/containers/systemd/eddb-website.container ~/disabled-containers-config/
-mv ~/disabled-containers-config/eddb-hub.container ~/.config/containers/systemd/
-systemctl --user daemon-reload
-systemctl --user start eddb-hub
-```
-
-Une fois le site en place depuis quelques jours sans incident : retirer
-`eddb-hub` pour de bon (son unité de `~/disabled-containers-config/`, puis
-`podman rmi` de son image, par son nom).
+Mis en ligne le 27.10.2026 ; `eddb-hub` a été retiré le même jour (unité
+et images) : le retour vers l'ancienne page n'est plus possible. Pour une
+version précédente du site, garder l'image en place avant de reconstruire
+(`podman tag eddb-website:latest eddb-website:previous`), puis, en cas de
+problème : `podman tag eddb-website:previous eddb-website:latest` et
+`systemctl --user restart eddb-website`.
