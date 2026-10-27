@@ -50,7 +50,9 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
 - **Shared domain**: NocoDB (`/noco`) and the showcases (`/pressearchiv`,
   `/holynet`, `/nafo`, `/callisto`…) live on eddb.unifr.ch too. Never
   create a page whose path collides with them. Assets are under `/_astro/`.
-- **Texts are written for others**: the team is named **DIT-ER**.
+- **Texts are written for others**: the team is named **DIT-ER**. In
+  French, EDDB is « une prestation de la DIT-ER », not « un service »
+  (Alrick, 27.10.2026); German and English keep « Dienst » and « service ».
 - **Open science**: describe our support, not platforms. DaSCH and data
   repositories (OLOS, Zenodo) are not named on the site until those
   processes are properly established (Alrick, 27.10.2026).

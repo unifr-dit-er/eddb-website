@@ -33,7 +33,7 @@ const ui = {
     'faculty.lettres': 'Lettres et sciences humaines',
     'faculty.sciences': 'Sciences et médecine',
     'faculty.droit': 'Droit',
-    'footer.service': 'Un service de la DIT-ER, Université de Fribourg',
+    'footer.service': 'Une prestation de la DIT-ER, Université de Fribourg',
     'footer.contact': 'Contact :',
     'footer.impressum': 'Impressum',
     'footer.legal': 'Mentions légales',
