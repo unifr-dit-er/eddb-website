@@ -1,6 +1,6 @@
 ---
 kind: home
-title: Des bases de données pour vos projets de recherche et d’enseignement
+title: Des bases de données pour vos projets d’enseignement et de recherche
 description: EDDB accompagne les équipes de l’Université de Fribourg dans la création, l’hébergement et la publication de leurs bases de données.
 cta:
   label: Démarrer un projet

@@ -1,6 +1,6 @@
 # EDDB website
 
-Website of EDDB, the database service for research and teaching of the
+Website of EDDB, the database service for teaching and research of the
 University of Fribourg (DIT-ER): eddb.unifr.ch.
 
 Built with [Astro](https://astro.build) as a static site, served by nginx.

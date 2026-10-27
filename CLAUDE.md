@@ -1,6 +1,6 @@
 # EDDB website
 
-Website presenting the EDDB service (databases for research and teaching,
+Website presenting the EDDB service (databases for teaching and research,
 University of Fribourg) to teachers and researchers. It will replace the
 home page of eddb.unifr.ch, served today by `eddb-hub`.
 
@@ -31,6 +31,7 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   a change is carried into all three (a dialog not yet translated falls
   back to French). The HTML title is `site.title` in `src/i18n/ui.ts`:
   « Enseignement et Recherche », in the order of the team's name, DIT-ER.
+  Teaching always comes before research, in every text and language.
 - **Dialogs**: native `<dialog>`, one at a time; a link to `#<slug>`
   opens the dialog of that id, closing any other. Link with the bare hash,
   not `/#<slug>`, so as to stay in the current language.

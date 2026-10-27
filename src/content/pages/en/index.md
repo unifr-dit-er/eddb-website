@@ -1,6 +1,6 @@
 ---
 kind: home
-title: Databases for your research and teaching projects
+title: Databases for your teaching and research projects
 description: EDDB helps teams at the University of Fribourg build, host and publish their databases.
 cta:
   label: Start a project

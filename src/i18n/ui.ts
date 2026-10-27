@@ -15,7 +15,7 @@ export const contactEmail = 'eddb@unifr.ch';
 // Interface strings; page texts live in src/content/pages/.
 const ui = {
   fr: {
-    'site.tagline': 'Bases de données pour la recherche et l’enseignement',
+    'site.tagline': 'Bases de données pour l’enseignement et la recherche',
     'site.unifr': 'Université de Fribourg',
     'site.title': 'EDDB · Enseignement et Recherche',
     'nav.skip': 'Aller au contenu',
@@ -39,7 +39,7 @@ const ui = {
     'footer.legal': 'Mentions légales',
   },
   de: {
-    'site.tagline': 'Datenbanken für Forschung und Lehre',
+    'site.tagline': 'Datenbanken für Lehre und Forschung',
     'site.unifr': 'Universität Freiburg',
     'site.title': 'EDDB · Lehre und Forschung',
     'nav.skip': 'Zum Inhalt',
@@ -63,7 +63,7 @@ const ui = {
     'footer.legal': 'Rechtliche Hinweise',
   },
   en: {
-    'site.tagline': 'Databases for research and teaching',
+    'site.tagline': 'Databases for teaching and research',
     'site.unifr': 'University of Fribourg',
     'site.title': 'EDDB · Teaching and Research',
     'nav.skip': 'Skip to content',
