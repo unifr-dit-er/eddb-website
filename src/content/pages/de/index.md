@@ -7,7 +7,8 @@ cta:
   slug: get-started
 ---
 
-EDDB (*Educational Databases*) ist ein Dienst der DIT-ER an der Universität
-Freiburg. Er begleitet Lehrende und Forschende, die für ihr Projekt eine
+EDDB (*Educational Databases*) ist ein Dienst der
+[DIT-ER](https://www.unifr.ch/it/de/education-and-research/) an der
+Universität Freiburg. Er begleitet Lehrende und Forschende, die für ihr Projekt eine
 Datenbank benötigen, von der Modellierung der Daten bis zu ihrer
 Veröffentlichung.
