@@ -37,6 +37,15 @@ const { title, description, locale, slug, translations } = Astro.props;
     >
       {t(locale, 'nav.skip')}
     </a>
+    <!-- The Unifr logo is black on transparent: it sits on its own white band,
+         as in the showcases, above the midnight blue header of EDDB. -->
+    <div class="bg-white">
+      <div class="mx-auto max-w-5xl px-6 py-4">
+        <a href={unifrUrl(locale, 'home')} class="inline-block">
+          <img src="/unifr.png" alt={t(locale, 'site.unifr')} width="500" height="82" class="h-9 w-auto sm:h-10" />
+        </a>
+      </div>
+    </div>
     <header class="bg-primary text-primary-foreground">
       <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-5">
         <a href={pageUrl(locale, 'index')} class="flex items-center gap-3">

@@ -16,6 +16,7 @@ export const contactEmail = 'eddb@unifr.ch';
 const ui = {
   fr: {
     'site.tagline': 'Bases de données pour la recherche et l’enseignement',
+    'site.unifr': 'Université de Fribourg',
     'nav.skip': 'Aller au contenu',
     'nav.languages': 'Langues',
     'offers.more': 'En savoir plus',
@@ -38,6 +39,7 @@ const ui = {
   },
   de: {
     'site.tagline': 'Datenbanken für Forschung und Lehre',
+    'site.unifr': 'Universität Freiburg',
     'nav.skip': 'Zum Inhalt',
     'nav.languages': 'Sprachen',
     'offers.more': 'Mehr erfahren',
@@ -60,6 +62,7 @@ const ui = {
   },
   en: {
     'site.tagline': 'Databases for research and teaching',
+    'site.unifr': 'University of Fribourg',
     'nav.skip': 'Skip to content',
     'nav.languages': 'Languages',
     'offers.more': 'Learn more',
@@ -115,7 +118,7 @@ export function localeParam(locale: Locale): string | undefined {
   return locale === defaultLocale ? undefined : locale;
 }
 
-/** Pages of the University of Fribourg linked from the footer. */
-export function unifrUrl(locale: Locale, page: 'impressum' | 'legal'): string {
-  return `https://www.unifr.ch/home/${locale}/${page}.html`;
+/** Pages of the University of Fribourg: its home page, imprint and legal notice. */
+export function unifrUrl(locale: Locale, page: 'home' | 'impressum' | 'legal'): string {
+  return `https://www.unifr.ch/home/${locale}/${page === 'home' ? '' : `${page}.html`}`;
 }

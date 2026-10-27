@@ -54,6 +54,10 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   contrast. `src/styles/theme.css` is copied from the showcases' kit
   (`eddb-showcases`, `packages/showcase-kit/src/theme.css`): carry changes
   over by hand.
+- **Unifr logo** (`public/unifr.png`, black on transparent, copied from
+  the showcases): on its own white band above the midnight blue header,
+  linking to the University's home page. A vector version would be
+  sharper if one becomes available.
 - Fonts are self-hosted (Fontsource): Atkinson Hyperlegible Next for text,
   Newsreader for headings, as in the showcases.
 
