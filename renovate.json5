@@ -59,9 +59,10 @@
       labels: ['dependencies', 'production'],
     },
     {
-      // The node-version of the CI is matched by its dependency name only.
+      // The node-version of the CI is matched by its dependency name only;
+      // the Dockerfile names the image in full (Podman needs it).
       description: 'Node stays on 22 (image, CI) until we decide to move',
-      matchDepNames: ['node', '@types/node'],
+      matchDepNames: ['node', 'docker.io/library/node', '@types/node'],
       allowedVersions: '<23',
     },
     {
