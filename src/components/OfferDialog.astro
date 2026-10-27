@@ -16,7 +16,7 @@ const { Content } = await render(offer);
 <dialog
   id={slug}
   aria-labelledby={`${slug}-title`}
-  class="m-auto max-h-[85vh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto rounded-xl bg-background p-0 text-foreground shadow-2xl backdrop:bg-black/50"
+  class="m-auto max-h-[85vh] w-[calc(100%-2rem)] max-w-3xl overflow-y-auto rounded-xl bg-background p-0 text-foreground shadow-2xl backdrop:bg-black/50"
 >
   <div class="sticky top-0 flex items-start justify-between gap-6 border-b bg-background px-6 py-5 sm:px-8">
     <h2 id={`${slug}-title`} class="font-serif text-3xl text-primary-ink">{offer.data.title}</h2>
