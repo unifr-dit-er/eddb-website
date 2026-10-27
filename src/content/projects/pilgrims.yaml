@@ -2,6 +2,10 @@ name: Pilgrims
 faculty: lettres
 department:
   fr: Département d’histoire de l’art et d’archéologie
+  de: Departement für Kunstgeschichte und Archäologie
+  en: Department of Art History and Archaeology
 summary:
   fr: Extraits de quelque 300 récits de pèlerins médiévaux, en différentes langues européennes, regroupés par site et documentés (sources, géographie, contexte).
+  de: "Auszüge aus rund 300 mittelalterlichen Pilgerberichten in verschiedenen europäischen Sprachen, nach Stätten geordnet und dokumentiert (Quellen, Geografie, Kontext)."
+  en: "Excerpts from some 300 medieval pilgrim accounts in various European languages, grouped by site and documented (sources, geography, context)."
 funding: FNS

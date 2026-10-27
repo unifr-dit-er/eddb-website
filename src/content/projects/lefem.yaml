@@ -2,6 +2,10 @@ name: LEFem
 faculty: lettres
 department:
   fr: Département d’histoire de l’art et d’archéologie
+  de: Departement für Kunstgeschichte und Archäologie
+  en: Department of Art History and Archaeology
 summary:
   fr: Images de femmes et mécénat artistique féminin dans l’Orient latin, du XIIe au XVe siècle.
+  de: "Frauenbilder und weibliches Kunstmäzenatentum im lateinischen Osten, vom 12. bis zum 15. Jahrhundert."
+  en: "Images of women and female art patronage in the Latin East, from the 12th to the 15th century."
 funding: FNS

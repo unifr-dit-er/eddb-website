@@ -41,7 +41,8 @@ const offers = defineCollection({
 const projects = defineCollection({
   loader: glob({ pattern: '*.yaml', base: './src/content/projects' }),
   schema: z.object({
-    name: z.string(),
+    // A proper name stays as is; a descriptive one is translated.
+    name: z.union([z.string(), localized]),
     faculty: z.enum(['lettres', 'sciences', 'droit']),
     department: localized,
     summary: localized,

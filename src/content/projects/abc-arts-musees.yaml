@@ -2,6 +2,10 @@ name: ABC arts & musées
 faculty: lettres
 department:
   fr: Département d’histoire de l’art et d’archéologie
+  de: Departement für Kunstgeschichte und Archäologie
+  en: Department of Art History and Archaeology
 summary:
   fr: Base d’œuvres adossée à une exposition virtuelle.
+  de: "Werkdatenbank, verbunden mit einer virtuellen Ausstellung."
+  en: "Database of artworks behind a virtual exhibition."
 funding: FNS

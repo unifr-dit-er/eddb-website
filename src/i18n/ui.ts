@@ -17,6 +17,7 @@ const ui = {
   fr: {
     'site.tagline': 'Bases de données pour la recherche et l’enseignement',
     'site.unifr': 'Université de Fribourg',
+    'site.title': 'EDDB · Recherche et Enseignement',
     'nav.skip': 'Aller au contenu',
     'nav.languages': 'Langues',
     'offers.more': 'En savoir plus',
@@ -40,6 +41,7 @@ const ui = {
   de: {
     'site.tagline': 'Datenbanken für Forschung und Lehre',
     'site.unifr': 'Universität Freiburg',
+    'site.title': 'EDDB · Forschung und Lehre',
     'nav.skip': 'Zum Inhalt',
     'nav.languages': 'Sprachen',
     'offers.more': 'Mehr erfahren',
@@ -63,6 +65,7 @@ const ui = {
   en: {
     'site.tagline': 'Databases for research and teaching',
     'site.unifr': 'University of Fribourg',
+    'site.title': 'EDDB · Research and Teaching',
     'nav.skip': 'Skip to content',
     'nav.languages': 'Languages',
     'offers.more': 'Learn more',
@@ -91,9 +94,9 @@ export function t(locale: Locale, key: UiKey): string {
   return ui[locale][key];
 }
 
-/** A localized text of the content collections, French as fallback. */
-export function localized(text: { fr: string } & Partial<Record<Locale, string>>, locale: Locale): string {
-  return text[locale] ?? text.fr;
+/** A localized text of the content collections, French as fallback; a plain string is the same in every language. */
+export function localized(text: string | ({ fr: string } & Partial<Record<Locale, string>>), locale: Locale): string {
+  return typeof text === 'string' ? text : (text[locale] ?? text.fr);
 }
 
 export function isLocale(value: string): value is Locale {

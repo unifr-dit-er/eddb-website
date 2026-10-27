@@ -27,15 +27,18 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   with `kind: home` (`index`, the introduction), `section` (a section of
   the page, id `<slug>`: `open-science`, whose `blocks` are shown side by
   side under its introduction) or `dialog` (`get-started`,
-  opened by the call to action). French is written first; a dialog not yet
-  translated falls back to French.
-- **Dialogs**: native `<dialog>`, one at a time; a link to `/#<slug>`
-  opens the dialog of that id, closing any other.
+  opened by the call to action). Every text exists in the three languages;
+  a change is carried into all three (a dialog not yet translated falls
+  back to French). The HTML title is `site.title` in `src/i18n/ui.ts`.
+- **Dialogs**: native `<dialog>`, one at a time; a link to `#<slug>`
+  opens the dialog of that id, closing any other. Link with the bare hash,
+  not `/#<slug>`, so as to stay in the current language.
 - **Offers**: the three offers (`nocodb`, `postgresql`, `showcases`) are
   cards, each opening a dialog with its details, including what is and is
   not included: `src/content/offers/<locale>/<slug>.md`.
 - **Projects**: one YAML file per project in service in
-  `src/content/projects/` (localized texts, French as fallback). The three
+  `src/content/projects/` (localized texts, French as fallback; `name` is
+  a plain string for a proper name, localized when descriptive). The three
   `featured` ones are shown, the others under "More projects" (a
   `<details>`; never call it "all projects"). Keep it in step with the
   project index of Almanac: a project put into service or archived enters

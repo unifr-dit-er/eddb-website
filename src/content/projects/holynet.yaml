@@ -2,6 +2,10 @@ name: Holy Networks
 faculty: lettres
 department:
   fr: Département d’histoire de l’art et d’archéologie
+  de: Departement für Kunstgeschichte und Archäologie
+  en: Department of Art History and Archaeology
 summary:
   fr: Lieux saints, itinéraires de pèlerinage, témoignages écrits et réseaux mémoriels, reliés entre eux.
+  de: "Heilige Stätten, Pilgerwege, schriftliche Zeugnisse und Erinnerungsnetzwerke, miteinander verknüpft."
+  en: "Holy sites, pilgrimage routes, written evidence and memorial networks, linked together."
 funding: FNS

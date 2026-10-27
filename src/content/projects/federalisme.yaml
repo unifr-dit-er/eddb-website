@@ -1,6 +1,13 @@
-name: Fédéralisme
+name:
+  fr: Fédéralisme
+  de: Föderalismus
+  en: Federalism
 faculty: droit
 department:
   fr: Institut du fédéralisme
+  de: Institut für Föderalismus
+  en: Institute of Federalism
 summary:
   fr: Banque de données de l’Institut, au service d’un observatoire et d’un recensement d’informations sur le fédéralisme menés avec la Fondation ch.
+  de: "Datenbank des Instituts, im Dienst einer Beobachtungsstelle und einer Erhebung von Informationen zum Föderalismus, gemeinsam mit der ch Stiftung."
+  en: "The Institute's database, serving an observatory and a survey of information on federalism, run with the ch Foundation."

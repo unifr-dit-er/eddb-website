@@ -15,8 +15,8 @@ d’autres institutions peuvent ensuite être invités dans votre base.
 1. **Premier contact.** Décrivez-nous votre projet, vos données et votre
    calendrier par email.
 2. **Entretien.** Nous examinons ensemble vos besoins et vous proposons
-   une solution : [base NocoDB](/#nocodb),
-   [base PostgreSQL](/#postgresql), [vitrine](/#showcases).
+   une solution : [base NocoDB](#nocodb),
+   [base PostgreSQL](#postgresql), [vitrine](#showcases).
 3. **Modélisation.** Nous construisons avec vous la structure de votre
    base.
 4. **Reprise des données.** Nous importons vos données existantes.

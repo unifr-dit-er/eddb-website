@@ -1,7 +1,14 @@
-name: Biochimie et microbiologie
+name:
+  fr: Biochimie et microbiologie
+  de: Biochemie und Mikrobiologie
+  en: Biochemistry and Microbiology
 faculty: sciences
 department:
   fr: Département de biologie et Section de médecine
+  de: Departement für Biologie und Sektion Medizin
+  en: Department of Biology and Section of Medicine
 summary:
   fr: Cinq bases de laboratoire, reprises d’un ancien serveur, pour les anticorps, les protocoles, les plasmides et les amorces.
+  de: "Fünf Labordatenbanken, von einem früheren Server übernommen, für Antikörper, Protokolle, Plasmide und Primer."
+  en: "Five laboratory databases, migrated from a former server, for antibodies, protocols, plasmids and primers."
 featured: true

@@ -2,7 +2,11 @@ name: Callisto
 faculty: lettres
 department:
   fr: Département d’histoire de l’art et d’archéologie
+  de: Departement für Kunstgeschichte und Archäologie
+  en: Department of Art History and Archaeology
 summary:
   fr: Culture matérielle et représentations de l’enfance dans l’Antiquité, élargies à toute l’iconographie du jeu, de 800 av. à 500 apr. J.-C.
+  de: "Materielle Kultur und Darstellungen der Kindheit in der Antike, erweitert auf die gesamte Ikonografie des Spiels, von 800 v. bis 500 n. Chr."
+  en: "Material culture and representations of childhood in Antiquity, extended to the whole iconography of play, from 800 BC to AD 500."
 funding: ERC
 url: https://eddb.unifr.ch/callisto/

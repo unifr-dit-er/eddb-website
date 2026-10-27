@@ -2,7 +2,11 @@ name: Ludus
 faculty: lettres
 department:
   fr: Département d’histoire de l’art et d’archéologie
+  de: Departement für Kunstgeschichte und Archäologie
+  en: Department of Art History and Archaeology
 summary:
   fr: Plateaux de jeu antiques, de l’Égypte ancienne à la fin de l’Empire romain d’Occident, avec une carte interrogeable.
+  de: "Antike Spielbretter, vom alten Ägypten bis zum Ende des Weströmischen Reiches, mit einer abfragbaren Karte."
+  en: "Ancient game boards, from ancient Egypt to the end of the Western Roman Empire, with a searchable map."
 funding: ERC
 url: https://eddb.unifr.ch/ludus/

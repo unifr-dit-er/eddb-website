@@ -4,7 +4,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import ContentDialog from '../../components/ContentDialog.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { defaultLocale, localeParam, splitEntryId, t, type Locale } from '../../i18n/ui';
+import { defaultLocale, localeParam, localized, splitEntryId, t, type Locale } from '../../i18n/ui';
 
 export const getStaticPaths = (async () => {
   const parts = (await getCollection('pages')).map((page) => ({ page, ...splitEntryId(page.id) }));
@@ -39,7 +39,9 @@ const { title, description, cta } = page.data;
 const offers = (await getCollection('offers', ({ id }) => splitEntryId(id).locale === locale)).sort(
   (a, b) => a.data.order - b.data.order,
 );
-const projects = (await getCollection('projects')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+const projects = (await getCollection('projects')).sort((a, b) =>
+  localized(a.data.name, locale).localeCompare(localized(b.data.name, locale), locale),
+);
 const featured = projects.filter(({ data }) => data.featured);
 const more = projects.filter(({ data }) => !data.featured);
 const renderedSections = await Promise.all(
@@ -47,7 +49,7 @@ const renderedSections = await Promise.all(
 );
 ---
 
-<Layout title={`EDDB · ${title}`} description={description} locale={locale} slug="index" translations={translations}>
+<Layout title={t(locale, 'site.title')} description={description} locale={locale} slug="index" translations={translations}>
   <div class="mx-auto max-w-5xl px-6 py-12">
     <div class="max-w-3xl">
       <h1 class="font-serif text-4xl leading-tight text-primary-ink sm:text-5xl">{title}</h1>
