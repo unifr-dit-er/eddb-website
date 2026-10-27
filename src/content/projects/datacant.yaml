@@ -1,0 +1,8 @@
+name: Datacant
+faculty: droit
+department:
+  fr: Institut de droit européen
+summary:
+  fr: Jurisprudence cantonale en matière de protection des données depuis 1984, avec un résumé de chaque arrêt en allemand et en français.
+url: https://datacant.unifr.ch
+featured: true

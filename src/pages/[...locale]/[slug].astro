@@ -2,27 +2,47 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { localeParam, splitEntryId } from '../../i18n/ui';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { localeParam } from '../../i18n/ui';
+import { getPageRoutes } from '../../lib/pages';
 
 export const getStaticPaths = (async () => {
-  const pages = await getCollection('pages');
-  return pages
-    .map((page) => ({ page, ...splitEntryId(page.id) }))
+  const routes = await getPageRoutes();
+  return routes
     .filter(({ slug }) => slug !== 'index')
-    .map(({ page, locale, slug }) => ({
-      params: { locale: localeParam(locale), slug },
-      props: { page, locale },
-    }));
+    .map((route) => ({ params: { locale: localeParam(route.locale), slug: route.slug }, props: route }));
 }) satisfies GetStaticPaths;
 
-const { page, locale } = Astro.props;
-const { slug } = Astro.params;
+const { page, locale, slug, translations } = Astro.props;
 const { Content } = await render(page);
+// The projects page shows the gallery after its introduction.
+const projects =
+  slug === 'projects'
+    ? (await getCollection('projects')).sort((a, b) => a.data.name.localeCompare(b.data.name))
+    : [];
 ---
 
-<Layout title={`${page.data.title} · EDDB`} description={page.data.description} locale={locale} slug={slug}>
-  <h1 class="font-serif text-4xl leading-tight text-primary-ink">{page.data.title}</h1>
-  <div class="prose-eddb mt-8">
-    <Content />
+<Layout
+  title={`${page.data.title} · EDDB`}
+  description={page.data.description}
+  locale={locale}
+  slug={slug}
+  translations={translations}
+  wide={projects.length > 0}
+>
+  <div class="max-w-3xl">
+    <h1 class="font-serif text-4xl leading-tight text-primary-ink">{page.data.title}</h1>
+    <div class="prose-eddb mt-8">
+      <Content />
+    </div>
   </div>
+  {
+    projects.length > 0 && (
+      <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <ProjectCard project={project} locale={locale} />
+        ))}
+      </div>
+    )
+  }
 </Layout>

@@ -1,0 +1,8 @@
+name: NAFO
+faculty: lettres
+department:
+  fr: Département d’histoire et Musée d’art et d’histoire de Fribourg
+summary:
+  fr: Collection numismatique, une fiche par monnaie avec ses images, son identification, son autorité émettrice, son atelier et son métal.
+url: https://eddb.unifr.ch/nafo/
+featured: true

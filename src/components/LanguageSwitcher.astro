@@ -5,9 +5,11 @@ interface Props {
   locale: Locale;
   /** Slug of the current page, the same in every language. */
   slug: string;
+  /** Languages in which the page exists; the others link to their home page. */
+  translations: Locale[];
 }
 
-const { locale, slug } = Astro.props;
+const { locale, slug, translations } = Astro.props;
 ---
 
 <nav aria-label={t(locale, 'nav.languages')}>
@@ -16,7 +18,7 @@ const { locale, slug } = Astro.props;
       locales.map((other) => (
         <li>
           <a
-            href={pageUrl(other, slug)}
+            href={pageUrl(other, translations.includes(other) ? slug : 'index')}
             hreflang={other}
             lang={other}
             aria-current={other === locale ? 'true' : undefined}

@@ -19,7 +19,19 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   under `/en/` (`astro.config.mjs`). Interface strings in
   `src/i18n/ui.ts`; page texts in Markdown, one file per page and language:
   `src/content/pages/<locale>/<slug>.md`, with the **same slug in every
-  language** (the language switcher relies on it).
+  language** (the language switcher relies on it). Slugs are English in
+  every language (`/services`, `/de/services`). Pages: `index`,
+  `services`, `projects`, `open-science`, `get-started` (Almanac:
+  `eddb/eddb-website/decisions/2026-10-27-plan-du-site.md`). French is
+  written first; a page missing in a language makes the switcher link to
+  that language's home page.
+- **Projects**: one YAML file per project in service in
+  `src/content/projects/` (localized texts, French as fallback), all shown
+  on `/projects`, the `featured` ones on the home page too. Keep it in step
+  with the project index of Almanac: a project put into service or
+  archived enters or leaves the gallery.
+- **Drafts**: missing information is marked `[À compléter : …]` in the
+  texts; none may remain at launch (`grep -rn 'À compléter' src/content`).
 - **Shared domain**: NocoDB (`/noco`) and the showcases (`/pressearchiv`,
   `/holynet`, `/nafo`, `/callisto`…) live on eddb.unifr.ch too. Never
   create a page whose path collides with them. Assets are under `/_astro/`.

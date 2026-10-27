@@ -3,16 +3,19 @@ import '@fontsource-variable/atkinson-hyperlegible-next';
 import '@fontsource-variable/newsreader';
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import { locales, pageUrl, t, type Locale } from '../i18n/ui';
+import { contactEmail, navigation, pageUrl, t, unifrUrl, type Locale } from '../i18n/ui';
 
 interface Props {
   title: string;
   description: string;
   locale: Locale;
   slug: string;
+  translations: Locale[];
+  /** Wider main column, for galleries and the home page. */
+  wide?: boolean;
 }
 
-const { title, description, locale, slug } = Astro.props;
+const { title, description, locale, slug, translations, wide = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +26,7 @@ const { title, description, locale, slug } = Astro.props;
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     {
-      locales.map((other) => (
+      translations.map((other) => (
         <link rel="alternate" hreflang={other} href={new URL(pageUrl(other, slug), Astro.site)} />
       ))
     }
@@ -37,7 +40,7 @@ const { title, description, locale, slug } = Astro.props;
       {t(locale, 'nav.skip')}
     </a>
     <header class="bg-primary text-primary-foreground">
-      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-5">
+      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 pt-5">
         <a href={pageUrl(locale, 'index')} class="flex items-center gap-3">
           <img src="/eddb.svg" alt="" width="40" height="40" />
           <span>
@@ -45,15 +48,45 @@ const { title, description, locale, slug } = Astro.props;
             <span class="block text-sm opacity-90">{t(locale, 'site.tagline')}</span>
           </span>
         </a>
-        <LanguageSwitcher locale={locale} slug={slug} />
+        <LanguageSwitcher locale={locale} slug={slug} translations={translations} />
       </div>
+      <nav aria-label={t(locale, 'nav.main')} class="mx-auto max-w-5xl px-6 pb-3 pt-4">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+          {
+            navigation.map((item) => (
+              <li>
+                <a
+                  href={pageUrl(locale, item)}
+                  aria-current={item === slug ? 'page' : undefined}
+                  class:list={[
+                    'inline-block border-b-2 pb-1 hover:border-primary-foreground',
+                    item === slug ? 'border-primary-foreground font-semibold' : 'border-transparent',
+                  ]}
+                >
+                  {t(locale, `nav.${item}`)}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
     </header>
-    <main id="content" class="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
+    <main id="content" class:list={['mx-auto w-full flex-1 px-6 py-12', wide ? 'max-w-5xl' : 'max-w-3xl']}>
       <slot />
     </main>
     <footer class="border-t">
-      <div class="mx-auto max-w-5xl px-6 py-6 text-sm text-muted-foreground">
-        {t(locale, 'footer.service')}
+      <div
+        class="mx-auto flex max-w-5xl flex-wrap justify-between gap-x-8 gap-y-2 px-6 py-6 text-sm text-muted-foreground"
+      >
+        <span>{t(locale, 'footer.service')}</span>
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+          <li>
+            {t(locale, 'footer.contact')}{' '}
+            <a class="underline underline-offset-4" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+          </li>
+          <li><a class="underline underline-offset-4" href={unifrUrl(locale, 'impressum')}>{t(locale, 'footer.impressum')}</a></li>
+          <li><a class="underline underline-offset-4" href={unifrUrl(locale, 'legal')}>{t(locale, 'footer.legal')}</a></li>
+        </ul>
       </div>
     </footer>
   </body>
