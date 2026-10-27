@@ -121,6 +121,13 @@ export function localeParam(locale: Locale): string | undefined {
   return locale === defaultLocale ? undefined : locale;
 }
 
+/** Page of DIT-ER on unifr.ch; it has no English version, the French one stands in. */
+export function ditErUrl(locale: Locale): string {
+  return locale === 'de'
+    ? 'https://www.unifr.ch/it/de/education-and-research/'
+    : 'https://www.unifr.ch/it/fr/enseignement-et-recherche.html';
+}
+
 /** Pages of the University of Fribourg: its home page, imprint and legal notice. */
 export function unifrUrl(locale: Locale, page: 'home' | 'impressum' | 'legal'): string {
   return `https://www.unifr.ch/home/${locale}/${page === 'home' ? '' : `${page}.html`}`;

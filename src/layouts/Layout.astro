@@ -3,7 +3,7 @@ import '@fontsource-variable/atkinson-hyperlegible-next';
 import '@fontsource-variable/newsreader';
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import { contactEmail, pageUrl, t, unifrUrl, type Locale } from '../i18n/ui';
+import { contactEmail, ditErUrl, pageUrl, t, unifrUrl, type Locale } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -14,6 +14,8 @@ interface Props {
 }
 
 const { title, description, locale, slug, translations } = Astro.props;
+// The footer line names DIT-ER once: that name becomes a link to its page.
+const [serviceBefore, serviceAfter] = t(locale, 'footer.service').split('DIT-ER');
 ---
 
 <!doctype html>
@@ -84,7 +86,9 @@ const { title, description, locale, slug, translations } = Astro.props;
       <div
         class="mx-auto flex max-w-5xl flex-wrap justify-between gap-x-8 gap-y-2 px-6 py-6 text-sm text-muted-foreground"
       >
-        <span>{t(locale, 'footer.service')}</span>
+        <span>
+          {serviceBefore}<a class="underline underline-offset-4" href={ditErUrl(locale)}>DIT-ER</a>{serviceAfter}
+        </span>
         <ul class="flex flex-wrap gap-x-6 gap-y-2">
           <li>
             {t(locale, 'footer.contact')}{' '}
