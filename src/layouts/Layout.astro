@@ -3,7 +3,7 @@ import '@fontsource-variable/atkinson-hyperlegible-next';
 import '@fontsource-variable/newsreader';
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import { contactEmail, dialogUrl, navigation, pageUrl, t, unifrUrl, type Locale } from '../i18n/ui';
+import { contactEmail, pageUrl, t, unifrUrl, type Locale } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -11,11 +11,9 @@ interface Props {
   locale: Locale;
   slug: string;
   translations: Locale[];
-  /** Wider main column, for galleries and the home page. */
-  wide?: boolean;
 }
 
-const { title, description, locale, slug, translations, wide = false } = Astro.props;
+const { title, description, locale, slug, translations } = Astro.props;
 ---
 
 <!doctype html>
@@ -40,7 +38,7 @@ const { title, description, locale, slug, translations, wide = false } = Astro.p
       {t(locale, 'nav.skip')}
     </a>
     <header class="bg-primary text-primary-foreground">
-      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 pt-5">
+      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-5">
         <a href={pageUrl(locale, 'index')} class="flex items-center gap-3">
           <img src="/eddb.svg" alt="" width="40" height="40" />
           <span>
@@ -50,28 +48,8 @@ const { title, description, locale, slug, translations, wide = false } = Astro.p
         </a>
         <LanguageSwitcher locale={locale} slug={slug} translations={translations} />
       </div>
-      <nav aria-label={t(locale, 'nav.main')} class="mx-auto max-w-5xl px-6 pb-3 pt-4">
-        <ul class="flex flex-wrap gap-x-6 gap-y-2">
-          {
-            navigation.map((item) => (
-              <li>
-                <a
-                  href={'dialog' in item ? dialogUrl(locale, item.slug) : pageUrl(locale, item.slug)}
-                  aria-current={item.slug === slug ? 'page' : undefined}
-                  class:list={[
-                    'inline-block border-b-2 pb-1 hover:border-primary-foreground',
-                    item.slug === slug ? 'border-primary-foreground font-semibold' : 'border-transparent',
-                  ]}
-                >
-                  {t(locale, `nav.${item.slug}`)}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
     </header>
-    <main id="content" class:list={['mx-auto w-full flex-1 px-6 py-12', wide ? 'max-w-5xl' : 'max-w-3xl']}>
+    <main id="content" class="flex-1">
       <slot />
     </main>
     <footer class="border-t">

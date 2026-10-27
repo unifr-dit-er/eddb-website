@@ -1,7 +1,7 @@
 ---
+kind: dialog
 title: Démarrer un projet
 description: Qui peut faire une demande à EDDB, comment se déroule un projet et comment nous contacter.
-dialog: true
 ---
 
 ### Qui peut faire une demande ?

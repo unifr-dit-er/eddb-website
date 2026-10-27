@@ -5,17 +5,18 @@ import { z } from 'astro/zod';
 /** A text in each language; French is required, the others fall back to it. */
 const localized = z.object({ fr: z.string(), de: z.string().optional(), en: z.string().optional() });
 
-// One Markdown file per page and language: src/content/pages/<locale>/<slug>.md.
-// A page keeps the same slug in every language, so that the language switcher
-// can link a page to its translations.
+// The site is a single page. Its texts are Markdown files, one per part and
+// language: src/content/pages/<locale>/<slug>.md, same slug in every language.
+// - home (`index`): the introduction at the top of the page;
+// - section: a section of the page, with its id <slug> (/#<slug>);
+// - dialog: a dialog opened from the page (/#<slug>).
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
   schema: z.object({
+    kind: z.enum(['home', 'section', 'dialog']),
     title: z.string(),
     description: z.string(),
-    // Shown as a dialog on the home page (/#<slug>), not as a page of its own.
-    dialog: z.boolean().default(false),
-    // Home page only: the call to action, opening the dialog page <slug>.
+    // Home only: the call to action, opening the dialog <slug>.
     cta: z.object({ label: z.string(), slug: z.string() }).optional(),
   }),
 });
@@ -32,8 +33,9 @@ const offers = defineCollection({
   }),
 });
 
-// One YAML file per project in service, shown on /projects (and on the home
-// page if `featured`). Keep it in step with the project index of Almanac.
+// One YAML file per project in service: the `featured` ones are shown first,
+// the others under "More projects". Keep it in step with the project index of
+// Almanac.
 const projects = defineCollection({
   loader: glob({ pattern: '*.yaml', base: './src/content/projects' }),
   schema: z.object({

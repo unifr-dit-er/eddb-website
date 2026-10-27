@@ -1,4 +1,5 @@
 ---
+kind: home
 title: Datenbanken für Ihre Forschungs- und Lehrprojekte
 description: EDDB begleitet die Teams der Universität Freiburg beim Aufbau, Hosting und bei der Veröffentlichung ihrer Datenbanken.
 ---

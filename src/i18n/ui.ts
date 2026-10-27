@@ -10,13 +10,6 @@ export const languageNames: Record<Locale, string> = {
   en: 'English',
 };
 
-/** Main navigation, by slug; a dialog page opens on the home page. */
-export const navigation = [
-  { slug: 'projects' },
-  { slug: 'open-science' },
-  { slug: 'get-started', dialog: true },
-] as const;
-
 export const contactEmail = 'eddb@unifr.ch';
 
 // Interface strings; page texts live in src/content/pages/.
@@ -24,15 +17,14 @@ const ui = {
   fr: {
     'site.tagline': 'Bases de données pour la recherche et l’enseignement',
     'nav.skip': 'Aller au contenu',
-    'nav.main': 'Navigation principale',
     'nav.languages': 'Langues',
     'offers.more': 'En savoir plus',
     'offers.close': 'Fermer',
-    'nav.projects': 'Projets',
-    'nav.open-science': 'Science ouverte',
-    'nav.get-started': 'Démarrer un projet',
     'home.projects': 'Quelques projets',
-    'home.allProjects': 'Tous les projets',
+    'home.moreProjects': 'Plus de projets',
+    'home.fewerProjects': 'Moins de projets',
+    'home.projectsIntro':
+      'Des bases de toutes les disciplines : droit, histoire, histoire de l’art, archéologie, biologie. Certaines se consultent en ligne, d’autres servent au travail interne des équipes.',
     'projects.visit': 'Consulter',
     'funding.FNS': 'FNS',
     'funding.ERC': 'ERC',
@@ -47,15 +39,14 @@ const ui = {
   de: {
     'site.tagline': 'Datenbanken für Forschung und Lehre',
     'nav.skip': 'Zum Inhalt',
-    'nav.main': 'Hauptnavigation',
     'nav.languages': 'Sprachen',
     'offers.more': 'Mehr erfahren',
     'offers.close': 'Schliessen',
-    'nav.projects': 'Projekte',
-    'nav.open-science': 'Open Science',
-    'nav.get-started': 'Projekt starten',
     'home.projects': 'Einige Projekte',
-    'home.allProjects': 'Alle Projekte',
+    'home.moreProjects': 'Weitere Projekte',
+    'home.fewerProjects': 'Weniger Projekte',
+    'home.projectsIntro':
+      'Datenbanken aus allen Disziplinen: Recht, Geschichte, Kunstgeschichte, Archäologie, Biologie. Manche sind online zugänglich, andere dienen der internen Arbeit der Teams.',
     'projects.visit': 'Ansehen',
     'funding.FNS': 'SNF',
     'funding.ERC': 'ERC',
@@ -70,15 +61,14 @@ const ui = {
   en: {
     'site.tagline': 'Databases for research and teaching',
     'nav.skip': 'Skip to content',
-    'nav.main': 'Main navigation',
     'nav.languages': 'Languages',
     'offers.more': 'Learn more',
     'offers.close': 'Close',
-    'nav.projects': 'Projects',
-    'nav.open-science': 'Open science',
-    'nav.get-started': 'Start a project',
     'home.projects': 'Some projects',
-    'home.allProjects': 'All projects',
+    'home.moreProjects': 'More projects',
+    'home.fewerProjects': 'Fewer projects',
+    'home.projectsIntro':
+      'Databases from every discipline: law, history, art history, archaeology, biology. Some can be browsed online, others support the internal work of the teams.',
     'projects.visit': 'Visit',
     'funding.FNS': 'SNSF',
     'funding.ERC': 'ERC',
@@ -105,11 +95,6 @@ export function localized(text: { fr: string } & Partial<Record<Locale, string>>
 
 export function isLocale(value: string): value is Locale {
   return (locales as readonly string[]).includes(value);
-}
-
-/** URL of a dialog page: the home page, which opens the dialog. */
-export function dialogUrl(locale: Locale, slug: string): string {
-  return pageUrl(locale, 'index', slug);
 }
 
 /** URL of a page slug in a language; 'index' is the home page. */

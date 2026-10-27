@@ -1,4 +1,5 @@
 ---
+kind: home
 title: Databases for your research and teaching projects
 description: EDDB helps teams at the University of Fribourg build, host and publish their databases.
 ---
