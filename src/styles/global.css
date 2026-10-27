@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+/* Texts rendered from Markdown (src/content/pages/). */
+@layer components {
+  .prose-eddb {
+    @apply text-lg leading-relaxed;
+  }
+  .prose-eddb > * + * {
+    @apply mt-5;
+  }
+  .prose-eddb h2 {
+    @apply mt-12 font-serif text-3xl text-primary-ink;
+  }
+  .prose-eddb h3 {
+    @apply mt-8 text-xl font-semibold text-primary-ink;
+  }
+  .prose-eddb a {
+    @apply text-primary-ink underline underline-offset-4 hover:decoration-2;
+  }
+  .prose-eddb ul {
+    @apply list-disc pl-6;
+  }
+}

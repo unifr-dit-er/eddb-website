@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<!-- A single page for every language: nginx serves it for any unknown path. -->
+<Layout title="Page introuvable · EDDB" description="Page introuvable" locale="fr" slug="index">
+  <h1 class="font-serif text-4xl text-primary-ink">Page introuvable</h1>
+  <p class="mt-6 text-lg"><a class="underline" href="/">Retour à l’accueil</a></p>
+  <p class="mt-10 text-lg" lang="de">Seite nicht gefunden. <a class="underline" href="/de/">Zur Startseite</a></p>
+  <p class="mt-4 text-lg" lang="en">Page not found. <a class="underline" href="/en/">Back to the home page</a></p>
+</Layout>

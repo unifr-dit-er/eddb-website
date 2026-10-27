@@ -1,0 +1,60 @@
+---
+import '@fontsource-variable/atkinson-hyperlegible-next';
+import '@fontsource-variable/newsreader';
+import '../styles/global.css';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import { locales, pageUrl, t, type Locale } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+  slug: string;
+}
+
+const { title, description, locale, slug } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      locales.map((other) => (
+        <link rel="alternate" hreflang={other} href={new URL(pageUrl(other, slug), Astro.site)} />
+      ))
+    }
+    <title>{title}</title>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-md focus:bg-background focus:px-4 focus:py-2"
+    >
+      {t(locale, 'nav.skip')}
+    </a>
+    <header class="bg-primary text-primary-foreground">
+      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-5">
+        <a href={pageUrl(locale, 'index')} class="flex items-center gap-3">
+          <img src="/eddb.svg" alt="" width="40" height="40" />
+          <span>
+            <span class="block text-2xl font-semibold tracking-wide">EDDB</span>
+            <span class="block text-sm opacity-90">{t(locale, 'site.tagline')}</span>
+          </span>
+        </a>
+        <LanguageSwitcher locale={locale} slug={slug} />
+      </div>
+    </header>
+    <main id="content" class="mx-auto w-full max-w-3xl flex-1 px-6 py-12">
+      <slot />
+    </main>
+    <footer class="border-t">
+      <div class="mx-auto max-w-5xl px-6 py-6 text-sm text-muted-foreground">
+        {t(locale, 'footer.service')}
+      </div>
+    </footer>
+  </body>
+</html>

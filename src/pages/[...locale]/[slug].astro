@@ -1,0 +1,28 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { localeParam, splitEntryId } from '../../i18n/ui';
+
+export const getStaticPaths = (async () => {
+  const pages = await getCollection('pages');
+  return pages
+    .map((page) => ({ page, ...splitEntryId(page.id) }))
+    .filter(({ slug }) => slug !== 'index')
+    .map(({ page, locale, slug }) => ({
+      params: { locale: localeParam(locale), slug },
+      props: { page, locale },
+    }));
+}) satisfies GetStaticPaths;
+
+const { page, locale } = Astro.props;
+const { slug } = Astro.params;
+const { Content } = await render(page);
+---
+
+<Layout title={`${page.data.title} · EDDB`} description={page.data.description} locale={locale} slug={slug}>
+  <h1 class="font-serif text-4xl leading-tight text-primary-ink">{page.data.title}</h1>
+  <div class="prose-eddb mt-8">
+    <Content />
+  </div>
+</Layout>
