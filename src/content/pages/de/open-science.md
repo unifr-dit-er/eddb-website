@@ -25,4 +25,5 @@ blocks:
 Forschungsförderer, allen voran der SNF, erwarten von Forschungsdaten, dass
 sie **FAIR** sind: auffindbar, zugänglich, interoperabel und
 wiederverwendbar. EDDB unterstützt Sie dabei, in Zusammenarbeit mit dem
-Open-Science-Team der Universität.
+[Open-Science-Team](https://www.unifr.ch/research/de/openscience/) der
+Universität.

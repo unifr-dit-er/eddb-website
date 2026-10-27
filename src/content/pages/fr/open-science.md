@@ -24,4 +24,5 @@ blocks:
 Les bailleurs de fonds, à commencer par le FNS, attendent des données de
 recherche qu’elles soient **FAIR** : faciles à trouver, accessibles,
 interopérables et réutilisables. EDDB vous y aide, en lien avec l’équipe
-Open Science de l’Université.
+[Open Science](https://www.unifr.ch/research/fr/openscience/) de
+l’Université.

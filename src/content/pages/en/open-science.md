@@ -22,4 +22,5 @@ blocks:
 
 Funders, starting with the SNSF, expect research data to be **FAIR**:
 findable, accessible, interoperable and reusable. EDDB helps you get
-there, together with the University's Open Science team.
+there, together with the University's
+[Open Science team](https://www.unifr.ch/research/en/openscience/).
