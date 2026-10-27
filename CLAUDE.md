@@ -79,6 +79,12 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   and `node_modules/.astro/`, start it again.
 - Image: `podman build -t eddb-website:latest .` (Node builds, nginx
   unprivileged serves on port 8080; `nginx.conf`).
+- **Production**: svx-web-eddb, port 8080 behind the VM's nginx
+  (`eddb.unifr.ch/`), taken over from eddb-hub; Quadlet unit
+  `eddb-website.container.example`. First deployment and rollback:
+  `docs/podman-deploy.md`; updates: `docs/podman-update.md`. `/projets`,
+  a page of eddb-hub still linked elsewhere, redirects to `/#projects`
+  (`nginx.conf`).
 - **CI** (`.github/workflows/ci.yml`): check, build and image on every push
   to main and every pull request. No secret, no deployment.
 - **Renovate** (`renovate.json5`), as in eddb-showcases: development tools

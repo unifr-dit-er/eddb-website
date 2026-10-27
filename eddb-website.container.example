@@ -1,0 +1,18 @@
+[Unit]
+Description=EDDB website (static, nginx)
+
+[Container]
+Label=app=eddb-website
+ContainerName=eddb-website
+Image=localhost/eddb-website:latest
+# Port 8080 of the VM is the one nginx sends eddb.unifr.ch/ to (svx-web-configs),
+# taken over from eddb-hub, the previous site. nginx listens on 8080 in the
+# container too (unprivileged image).
+PublishPort=127.0.0.1:8080:8080
+
+[Service]
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=default.target
