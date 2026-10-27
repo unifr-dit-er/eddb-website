@@ -22,3 +22,8 @@
     @apply list-disc pl-6;
   }
 }
+
+/* No page scrolling behind an open offer dialog. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}

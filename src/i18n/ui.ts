@@ -11,7 +11,7 @@ export const languageNames: Record<Locale, string> = {
 };
 
 /** Pages of the main navigation, by slug. */
-export const navigation = ['services', 'projects', 'open-science', 'get-started'] as const;
+export const navigation = ['projects', 'open-science', 'get-started'] as const;
 
 export const contactEmail = 'eddb@unifr.ch';
 
@@ -22,7 +22,8 @@ const ui = {
     'nav.skip': 'Aller au contenu',
     'nav.main': 'Navigation principale',
     'nav.languages': 'Langues',
-    'nav.services': 'Offre',
+    'offers.more': 'En savoir plus',
+    'offers.close': 'Fermer',
     'nav.projects': 'Projets',
     'nav.open-science': 'Science ouverte',
     'nav.get-started': 'Démarrer un projet',
@@ -44,7 +45,8 @@ const ui = {
     'nav.skip': 'Zum Inhalt',
     'nav.main': 'Hauptnavigation',
     'nav.languages': 'Sprachen',
-    'nav.services': 'Angebot',
+    'offers.more': 'Mehr erfahren',
+    'offers.close': 'Schliessen',
     'nav.projects': 'Projekte',
     'nav.open-science': 'Open Science',
     'nav.get-started': 'Projekt starten',
@@ -66,7 +68,8 @@ const ui = {
     'nav.skip': 'Skip to content',
     'nav.main': 'Main navigation',
     'nav.languages': 'Languages',
-    'nav.services': 'Services',
+    'offers.more': 'Learn more',
+    'offers.close': 'Close',
     'nav.projects': 'Projects',
     'nav.open-science': 'Open science',
     'nav.get-started': 'Start a project',

@@ -13,11 +13,20 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    // Home page only: the offer cards and the call to action.
-    cards: z
-      .array(z.object({ title: z.string(), text: z.string(), slug: z.string(), anchor: z.string().optional() }))
-      .optional(),
+    // Home page only: the call to action.
     cta: z.object({ label: z.string(), slug: z.string() }).optional(),
+  }),
+});
+
+// The three offers, shown as cards on the home page, each opening a dialog
+// with its details: src/content/offers/<locale>/<slug>.md. The slug is the
+// dialog id, so that /#<slug> opens it (same slug in every language).
+const offers = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/offers' }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    order: z.number(),
   }),
 });
 
@@ -36,4 +45,4 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { pages, projects };
+export const collections = { pages, offers, projects };

@@ -2,8 +2,9 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import OfferDialog from '../../components/OfferDialog.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { localeParam, pageUrl, t } from '../../i18n/ui';
+import { localeParam, pageUrl, splitEntryId, t } from '../../i18n/ui';
 import { getPageRoutes } from '../../lib/pages';
 
 export const getStaticPaths = (async () => {
@@ -15,7 +16,10 @@ export const getStaticPaths = (async () => {
 
 const { page, locale, translations } = Astro.props;
 const { Content } = await render(page);
-const { title, description, cards, cta } = page.data;
+const { title, description, cta } = page.data;
+const offers = (await getCollection('offers', ({ id }) => splitEntryId(id).locale === locale)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
 const featured = (await getCollection('projects', ({ data }) => data.featured)).sort((a, b) =>
   a.data.name.localeCompare(b.data.name),
 );
@@ -40,22 +44,27 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
   </div>
 
   {
-    cards && (
+    offers.length > 0 && (
       <ul class="mt-14 grid gap-5 md:grid-cols-3">
-        {cards.map((card) => (
+        {offers.map((offer) => (
           <li>
             <a
-              href={pageUrl(locale, card.slug, card.anchor)}
-              class="block h-full rounded-lg border bg-card p-6 hover:border-primary"
+              href={`#${splitEntryId(offer.id).slug}`}
+              aria-haspopup="dialog"
+              class="group flex h-full flex-col rounded-lg border bg-card p-6 hover:border-primary"
             >
-              <h2 class="font-serif text-2xl text-primary-ink">{card.title}</h2>
-              <p class="mt-3">{card.text}</p>
+              <h2 class="font-serif text-2xl text-primary-ink">{offer.data.title}</h2>
+              <p class="mt-3 flex-1">{offer.data.summary}</p>
+              <span class="mt-4 text-sm text-primary-ink underline underline-offset-4 group-hover:decoration-2">
+                {t(locale, 'offers.more')} →
+              </span>
             </a>
           </li>
         ))}
       </ul>
     )
   }
+  {offers.map((offer) => <OfferDialog offer={offer} locale={locale} />)}
 
   {
     featured.length > 0 && (
@@ -75,3 +84,26 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
     )
   }
 </Layout>
+
+<script>
+  // Each offer card links to #<slug>, the id of its dialog: the dialog opens
+  // on a click as on a shared link (eddb.unifr.ch/#nocodb). Closing it (close
+  // button, Escape, click on the backdrop) removes the hash again.
+  function openFromHash() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+    if (target instanceof HTMLDialogElement && !target.open) target.showModal();
+  }
+
+  for (const dialog of document.querySelectorAll('dialog')) {
+    dialog.addEventListener('close', () => {
+      if (location.hash === `#${dialog.id}`) history.replaceState(null, '', location.pathname + location.search);
+    });
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+</script>
