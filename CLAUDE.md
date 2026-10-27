@@ -54,10 +54,14 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   contrast. `src/styles/theme.css` is copied from the showcases' kit
   (`eddb-showcases`, `packages/showcase-kit/src/theme.css`): carry changes
   over by hand.
-- **Unifr logo** (`public/unifr.png`, black on transparent, copied from
-  the showcases): on its own white band above the midnight blue header,
-  linking to the University's home page. A vector version would be
-  sharper if one becomes available.
+- **Header**: a single white band, the Unifr logo, then EDDB in midnight
+  blue (inline SVG icon), a midnight blue rule below. The Unifr logo always
+  keeps its white background (Service communication). `public/unifr.png`
+  (500 × 82, the only web version, as on unifr.ch) is shown at exactly
+  41 px high to stay sharp; on narrow screens (< 640 px) the signet alone,
+  `public/unifr-signet.svg`, vector, extracted from the icon font of
+  unifr.ch (glyph U+E00A). Ask the Service communication for a vector
+  version of the horizontal logo.
 - Fonts are self-hosted (Fontsource): Atkinson Hyperlegible Next for text,
   Newsreader for headings, as in the showcases.
 

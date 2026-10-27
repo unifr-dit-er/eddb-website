@@ -37,24 +37,43 @@ const { title, description, locale, slug, translations } = Astro.props;
     >
       {t(locale, 'nav.skip')}
     </a>
-    <!-- The Unifr logo is black on transparent: it sits on its own white band,
-         as in the showcases, above the midnight blue header of EDDB. -->
-    <div class="bg-white">
-      <div class="mx-auto max-w-5xl px-6 py-4">
-        <a href={unifrUrl(locale, 'home')} class="inline-block">
-          <img src="/unifr.png" alt={t(locale, 'site.unifr')} width="500" height="82" class="h-9 w-auto sm:h-10" />
-        </a>
-      </div>
-    </div>
-    <header class="bg-primary text-primary-foreground">
-      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-5">
-        <a href={pageUrl(locale, 'index')} class="flex items-center gap-3">
-          <img src="/eddb.svg" alt="" width="40" height="40" />
-          <span>
-            <span class="block text-2xl font-semibold tracking-wide">EDDB</span>
-            <span class="block text-sm opacity-90">{t(locale, 'site.tagline')}</span>
-          </span>
-        </a>
+    <!-- A single white header: the Unifr logo, which must keep its white
+         background (Service communication), then EDDB, with a midnight blue
+         rule below. The logo PNG is 82 px high: shown at exactly half (41 px),
+         it stays sharp on high-density screens. The divider shows whenever
+         EDDB sits beside the logo. -->
+    <header class="border-b-4 border-primary bg-white text-primary-ink">
+      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <div class="flex items-center gap-x-6 gap-y-3 sm:flex-wrap">
+          <a href={unifrUrl(locale, 'home')} class="inline-block shrink-0">
+            <!-- Narrow screens: the signet alone, as on unifr.ch. -->
+            <img src="/unifr-signet.svg" alt={t(locale, 'site.unifr')} width="40" height="48" class="sm:hidden" />
+            <img src="/unifr.png" alt={t(locale, 'site.unifr')} width="250" height="41" class="hidden sm:block" />
+          </a>
+          <span class="h-10 w-px shrink-0 bg-border sm:hidden md:block"></span>
+          <a href={pageUrl(locale, 'index')} class="flex min-w-0 items-center gap-3">
+            <svg
+              width="34"
+              height="34"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              class="shrink-0"
+            >
+              <path d="M12 4L20 8L12 12L4 8L12 4Z"></path>
+              <path d="M20 12L12 16L4 12"></path>
+              <path d="M20 16L12 20L4 16"></path>
+            </svg>
+            <span>
+              <span class="block text-xl font-semibold tracking-wide">EDDB</span>
+              <span class="block text-sm text-muted-foreground">{t(locale, 'site.tagline')}</span>
+            </span>
+          </a>
+        </div>
         <LanguageSwitcher locale={locale} slug={slug} translations={translations} />
       </div>
     </header>
