@@ -13,8 +13,7 @@ blocks:
     text: >-
       Pour une requête au FNS, EDDB peut figurer dans votre plan de
       gestion des données (Data Management Plan) comme solution de
-      stockage et de publication. [À compléter : texte type à reprendre
-      dans un DMP.]
+      stockage et de publication.
   - title: Après le projet
     text: >-
       Une base ne disparaît pas à la fin d’un financement ou au départ
