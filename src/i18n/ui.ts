@@ -17,7 +17,7 @@ const ui = {
   fr: {
     'site.tagline': 'Bases de données pour la recherche et l’enseignement',
     'site.unifr': 'Université de Fribourg',
-    'site.title': 'EDDB · Recherche et Enseignement',
+    'site.title': 'EDDB · Enseignement et Recherche',
     'nav.skip': 'Aller au contenu',
     'nav.languages': 'Langues',
     'offers.more': 'En savoir plus',
@@ -41,7 +41,7 @@ const ui = {
   de: {
     'site.tagline': 'Datenbanken für Forschung und Lehre',
     'site.unifr': 'Universität Freiburg',
-    'site.title': 'EDDB · Forschung und Lehre',
+    'site.title': 'EDDB · Lehre und Forschung',
     'nav.skip': 'Zum Inhalt',
     'nav.languages': 'Sprachen',
     'offers.more': 'Mehr erfahren',
@@ -65,7 +65,7 @@ const ui = {
   en: {
     'site.tagline': 'Databases for research and teaching',
     'site.unifr': 'University of Fribourg',
-    'site.title': 'EDDB · Research and Teaching',
+    'site.title': 'EDDB · Teaching and Research',
     'nav.skip': 'Skip to content',
     'nav.languages': 'Languages',
     'offers.more': 'Learn more',

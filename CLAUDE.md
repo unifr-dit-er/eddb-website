@@ -29,7 +29,8 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   side under its introduction) or `dialog` (`get-started`,
   opened by the call to action). Every text exists in the three languages;
   a change is carried into all three (a dialog not yet translated falls
-  back to French). The HTML title is `site.title` in `src/i18n/ui.ts`.
+  back to French). The HTML title is `site.title` in `src/i18n/ui.ts`:
+  « Enseignement et Recherche », in the order of the team's name, DIT-ER.
 - **Dialogs**: native `<dialog>`, one at a time; a link to `#<slug>`
   opens the dialog of that id, closing any other. Link with the bare hash,
   not `/#<slug>`, so as to stay in the current language.
