@@ -11,9 +11,10 @@ blocks:
       l’équipe Open Science, la solution adaptée à votre projet.
   - title: Plan de gestion des données
     text: >-
-      Pour une requête au FNS, EDDB peut figurer dans votre plan de
-      gestion des données (Data Management Plan) comme solution de
-      stockage et de publication.
+      Pour une requête au FNS, nous vous accompagnons pour que vos
+      données soient conformes à votre plan de gestion des données (Data
+      Management Plan) : EDDB sert à les gérer pendant le projet, et nous
+      vous aidons à les préparer pour un dépôt de données reconnu.
   - title: Après le projet
     text: >-
       Une base ne disparaît pas à la fin d’un financement ou au départ

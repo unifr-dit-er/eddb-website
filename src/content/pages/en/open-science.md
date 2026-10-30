@@ -11,8 +11,10 @@ blocks:
       the solution that suits your project.
   - title: Data management plan
     text: >-
-      For an SNSF application, EDDB can be named in your data management
-      plan as a storage and publication solution.
+      For an SNSF application, we help you make sure your data complies
+      with your data management plan: EDDB is where you manage it during
+      the project, and we help you prepare it for deposit in a recognised
+      data repository.
   - title: After the project
     text: >-
       A database does not disappear at the end of a grant or when your

@@ -12,9 +12,10 @@ blocks:
       Ihr Projekt.
   - title: Datenmanagementplan
     text: >-
-      Für ein Gesuch beim SNF kann EDDB in Ihrem Datenmanagementplan (Data
-      Management Plan) als Lösung für Speicherung und Veröffentlichung
-      aufgeführt werden.
+      Für ein Gesuch beim SNF begleiten wir Sie, damit Ihre Daten Ihrem
+      Datenmanagementplan (Data Management Plan) entsprechen: EDDB dient
+      ihrer Verwaltung während des Projekts, und wir helfen Ihnen, sie für
+      ein anerkanntes Datenrepositorium vorzubereiten.
   - title: Nach dem Projekt
     text: >-
       Eine Datenbank verschwindet nicht am Ende einer Finanzierung oder
