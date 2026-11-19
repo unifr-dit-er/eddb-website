@@ -47,7 +47,7 @@ time. Tailwind CSS 4 (Vite plugin). Decided on 27.10.2026 (Almanac:
   or leaves the list.
 - **Drafts**: missing information is marked `[À compléter : …]` in the
   texts; none may remain at launch (`grep -rn 'À compléter' src/content`).
-- **Shared domain**: NocoDB (`/noco`) and the showcases (`/pressearchiv`,
+- **Shared domain**: NocoDB (`/noco`) and the showcases (`/presse-csp-kfm`,
   `/holynet`, `/nafo`, `/callisto`…) live on eddb.unifr.ch too. Never
   create a page whose path collides with them. Assets are under `/_astro/`.
 - **Texts are written for others**: the team is named **DIT-ER**. In

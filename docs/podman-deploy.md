@@ -61,7 +61,7 @@ curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:8080/           # 200
 
 Puis, depuis un navigateur : https://eddb.unifr.ch/, `/de/`, `/en/`, une
 modale (`/#nocodb`), `/projets` (redirigé), et une vitrine
-(`/pressearchiv`, `/nafo`) et NocoDB (`/noco/`), qui ne doivent pas avoir
+(`/presse-csp-kfm`, `/nafo`) et NocoDB (`/noco/`), qui ne doivent pas avoir
 bougé.
 
 ## Revenir en arrière
